@@ -48,6 +48,6 @@ public class MongoStudentDaoImpl implements StudentDao {
     }
 
     @Override public void insetStudent(Student student) {
-        mongoOperation.upsert()ave(student);
+        mongoOperation.save(student);
     }
 }
