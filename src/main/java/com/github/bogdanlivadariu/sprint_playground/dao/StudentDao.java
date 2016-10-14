@@ -9,9 +9,9 @@ public interface StudentDao {
 
     Student getStudentById(int id);
 
-    void removeStudentById(int id);
+    Object removeStudentById(int id);
 
-    void updateStudent(Student student);
+    Object updateStudent(Student student);
 
     void insetStudent(Student student);
 }

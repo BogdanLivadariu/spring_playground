@@ -1,6 +1,7 @@
 package com.github.bogdanlivadariu.sprint_playground.dao;
 
 import com.github.bogdanlivadariu.sprint_playground.entity.Student;
+import com.mongodb.WriteResult;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
@@ -30,16 +31,18 @@ public class StudentDaoImpl implements StudentDao {
         return this.students.get(id);
     }
 
-    @Override public void removeStudentById(int id) {
+    @Override public WriteResult removeStudentById(int id) {
         this.students.remove(id);
+        return null;
     }
 
-    @Override public void updateStudent(Student student) {
+    @Override public Object updateStudent(Student student) {
         Student s = students.get(student.getId());
         s.setCourse(student.getCourse());
         s.setName(student.getName());
 
         students.put(student.getId(), s);
+        return null;
     }
 
     @Override public void insetStudent(Student student) {
